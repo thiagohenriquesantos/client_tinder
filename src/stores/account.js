@@ -35,5 +35,11 @@ export default {
     isLoggedIn(state) {
       return state.account != "";
     }
+  },
+  accountHeaders(state) {
+    return {
+      "X-User-Email": state.account.email,
+      "X-User-Token": state.account.authentication_token
+    };
   }
 };
