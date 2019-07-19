@@ -13,7 +13,7 @@ Vue.use(Buefy);
 Vue.use(ActionCableVue, {
   debug: true,
   debugLevel: "error",
-  connectionUrl: `ws://${process.env.VUE_APP_WS}/cable`
+  connectionUrl: `wss://${process.env.VUE_APP_WS}/cable`
 });
 
 axios.defaults.baseURL = `${process.env.VUE_APP_API}/api/v1`;
