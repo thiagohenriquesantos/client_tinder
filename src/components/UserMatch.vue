@@ -1,6 +1,12 @@
 <template>
   <div>
     <div>
+      <div class="info-button">
+        <button class="button is-pulled-left" @click="goToUserInfo()">
+          <i class="fas fa-info fa-xs"></i>
+        </button>
+      </div>
+
       <div class="has-text-centered">
         <img :src="user.default_photo_url" />
       </div>
@@ -81,11 +87,26 @@ div.like-buttons {
     width: 3.5rem;
   }
 }
+
+div.info-button {
+  position: absolute;
+  z-index: 999999;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  button {
+    border-radius: 9999px;
+    height: 1.6rem;
+    width: 1.7rem;
+    opacity: 0.8;
+  }
+}
 </style>
 
 
 <script>
 import { mapState, mapActions } from "vuex";
+import router from "../router";
 
 export default {
   computed: {
@@ -95,6 +116,9 @@ export default {
   },
 
   methods: {
+    goToUserInfo() {
+      router.push({ name: "user", params: { user: this.user } });
+    },
     ...mapActions("Match", ["like"])
   }
 };
