@@ -7,5 +7,15 @@ export default {
       headers: store.getters["accountHeaders"]
     });
     return response.data;
+  },
+  async like(user_id, liked) {
+    let response = await axios.post(
+      `users/${user_id}/like`,
+      { like: { liked: liked } },
+      {
+        headers: store.getters["accountHeaders"]
+      }
+    );
+    return response.data;
   }
 };
