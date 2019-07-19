@@ -1,4 +1,4 @@
-# onebittinder
+# Client Tinder
 
 ## Project setup
 ```
