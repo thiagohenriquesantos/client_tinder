@@ -64,6 +64,7 @@ export default {
 
   methods: {
     ...mapActions("Match", ["loadSelectionList", "setCurrentSelection"]),
+    ...mapActions(["loadGeolocation"]),
 
     changeCurrentSelection() {
       let indexOfCurrent = this.selectionList.indexOf(this.currentSelection);
@@ -76,6 +77,7 @@ export default {
   },
 
   mounted() {
+    this.loadGeolocation();
     if (this.selectionList.length == 0) this.loadSelectionList();
   }
 };
